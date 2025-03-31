@@ -1,0 +1,53 @@
+project:
+  name: BMTK Workshop Tutorials
+  version: 1.0.0
+  description: This repository contains notebooks and code for the BMTK workshop tutorials.
+  tags:
+    - neuroscience
+    - visual_cortex
+    - v1
+    - lgn
+  homepage: https://github.com/AllenInstitute/bmtk-workshop
+
+environment:
+  dependencies:
+    - python=3.10
+    - pip
+    - ipywidgets
+    - numba
+    - numpy=1.23.5
+    - matplotlib
+    - openpyxl
+    - pandas
+    - pyqtgraph
+    - pyyaml
+    - requests
+    - scipy
+    - sqlalchemy
+    - tqdm
+    - nest-simulator
+    - ipytree
+    - python-jsonpath
+    - pydantic=2.7
+    - anndata
+    - parse
+    - pip:
+        - allensdk
+        - bmtk
+        - pytree
+        - git+https://github.com/alleninstitute/abc_atlas_access
+        - git+https://github.com/alleninstitute/neuroanalysis
+        - git+https://github.com/alleninstitute/aisynphys
+        - git+https://github.com/lahirujayathilake/mousev1
+
+workspace:
+  location: /workspace
+  resources:
+    min_cpu: 16
+    min_gpu: 0
+    min_mem: 16G
+    min_disk: 32G
+  data_sources:
+    - type: cybershuttle
+      identifier: <SUBSTITUTE_CORRECT_ID>
+      mount_point: /workspace/data
