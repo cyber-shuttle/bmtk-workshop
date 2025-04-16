@@ -1,7 +1,7 @@
 project:
-  name: BMTK Workshop Tutorials
+  name: Notebooks for BMTK Workshop.
   version: 1.0.0
-  description: This repository contains notebooks and code for the BMTK workshop tutorials.
+  description: ...
   tags:
     - neuroscience
     - visual_cortex
@@ -9,45 +9,30 @@ project:
     - lgn
   homepage: https://github.com/AllenInstitute/bmtk-workshop
 
-environment:
-  dependencies:
-    - python=3.10
-    - pip
-    - ipywidgets
-    - numba
-    - numpy=1.23.5
-    - matplotlib
-    - openpyxl
-    - pandas
-    - pyqtgraph
-    - pyyaml
-    - requests
-    - scipy
-    - sqlalchemy
-    - tqdm
-    - nest-simulator
-    - ipytree
-    - python-jsonpath
-    - pydantic=2.7
-    - anndata
-    - parse
-    - pip:
-        - allensdk
-        - bmtk
-        - pytree
-        - git+https://github.com/alleninstitute/abc_atlas_access
-        - git+https://github.com/alleninstitute/neuroanalysis
-        - git+https://github.com/alleninstitute/aisynphys
-        - git+https://github.com/lahirujayathilake/mousev1
-
 workspace:
   location: /workspace
   resources:
-    min_cpu: 16
+    min_cpu: 4
     min_gpu: 0
-    min_mem: 16G
-    min_disk: 32G
-  data_sources:
-    - type: cybershuttle
-      identifier: <SUBSTITUTE_CORRECT_ID>
-      mount_point: /workspace/data
+    min_mem: 0
+    gpu_mem: 1024
+    gpu_class: ["H100", "A100", "Generic"]
+  model_collection:
+    - source: cybershuttle
+      identifier: allenai-bmtk-workshop
+      mount_point: /cybershuttle_data/allenai-bmtk-workshop
+  data_collection: []
+
+additional_dependencies:
+  conda:
+    - python=3.10
+    - pip
+    - ipywidgets
+    - numpy
+    - pandas
+    - seaborn
+    - matplotlib
+    - nest-simulator
+    - kaeldai::bmtk
+  pip:
+    - sonata
